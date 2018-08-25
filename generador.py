@@ -3,22 +3,23 @@ import csv
 import os
 
 
+# Metodo para obtener la cantidad de palabras que se generan a partir de una
 def get_max_num(word):
     maxi = 1
     for x in range(len(word)):
         maxi *= len(word)
-
     return maxi
 
 
-def create_file(name):
+# Metodo que crea el archivo de texto y lo escribe
+def create_file(name, content):
     file = open("archivos/" + name + ".txt", "a")
+    file.write(content)
     file.close()
 
 
 dic = sys.argv[1]
 file_name = input("Ingrese el nombre del archivo a crear: ")
-# create_file(file_name)
 
 
 print("El numero de palabras que se generaran sera: " +
@@ -56,15 +57,9 @@ while True:
                 
     alltext += palabra + ","
     if a == resp2:
-
-        file = open("archivos/" + file_name + ".txt", "a")
-        file.write(alltext)
-        file.close()
+        create_file(file_name, alltext)
         break
 
     if a == get_max_num(dic):
-
-        file = open("archivos/" + file_name + ".txt", "a")
-        file.write(alltext)
-        file.close()
+        create_file(file_name, alltext)
         break

@@ -24,6 +24,8 @@ print("El numero de palabras que se generaran sera: " +
 resp = input(">")
 if resp != "y":
     sys.exit(0)
+print("Cuantas palabras se desea generar?: ")
+resp2 = int(input(">"))
 
 lista = [0] * int(len(dic))
 palabra = ""
@@ -47,6 +49,8 @@ while True:
     print(palabra)
     alltext += palabra
     a += 1
+    if a == resp2:
+        break
     if a == get_max_num(dic):
         file = open("archivos/" + file_name + ".txt", "w")
         file.write(alltext)

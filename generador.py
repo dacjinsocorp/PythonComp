@@ -27,8 +27,12 @@ print("El numero de palabras que se generaran sera: " +
 resp = input(">")
 if resp != "y":
     sys.exit(0)
-print("Cuantas palabras se desea generar?: ")
-wordCuantity = int(input(">"))
+while True:
+    try:
+        wordCuantity = int(input("Cuantas palabras se desea generar?: "))
+        break
+    except ValueError:
+        print ("Por favor ingresar un numero entero")
 
 lista = [0] * int(len(dic))
 palabra = ""

@@ -1,6 +1,6 @@
 import sys
 import csv
-
+import os
 
 def get_max_num(word):
     maxi = 1
@@ -10,7 +10,15 @@ def get_max_num(word):
     return maxi
 
 
+def create_file(name):
+    file = open("archivos/" + name +".txt", "a")
+    file.close()
+
 dic = sys.argv[1]
+file_name = input ("Ingrese el nombre del archivo a crear: ")
+create_file(file_name)
+
+
 print("El numero de palabras que se generaran sera: " +
       str(get_max_num(dic))+"\nQuires proseguir?[Y/N]")
 resp = input(">")
@@ -19,6 +27,8 @@ if resp != "y":
 
 lista = [0] * int(len(dic))
 palabra = ""
+
+alltext = ""
 a = 0
 while True:
     palabra = ""
@@ -29,12 +39,16 @@ while True:
                 lista[w+1] += 1
             except:
                 pass
+    
+
     for x in lista:
-        palabra += dic[x]
-
+        palabra += dic[x] + ","
     lista[0] += 1
-
     print(palabra)
+    alltext += palabra
     a += 1
     if a == get_max_num(dic):
+        file = open("archivos/" + file_name + ".txt", "w")
+        file.write(alltext)
+        file.close()
         break

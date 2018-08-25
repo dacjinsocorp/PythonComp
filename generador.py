@@ -24,8 +24,14 @@ dic = sys.argv[1]
 print("El numero de palabras que se generaran sera: " +
       str(get_max_num(dic))+"\nQuires proseguir?[Y/N]")
 resp = input(">")
-if resp != "y":
-    sys.exit(0)
+while True:
+    if resp == "y":
+        break
+    if resp == "n":
+        sys.exit()
+    else:
+        print("Quires proseguir?[Y/N]")
+        resp = input(">")
 while True:
     try:
         wordCuantity = int(input("Cuantas palabras se desea generar?: "))

@@ -1,5 +1,4 @@
 import sys
-import csv
 import os
 
 
@@ -69,10 +68,13 @@ while True:
 
     counter += 1      
     alltext += word + ","
+
+    # Corte por cantidad de palabras ordenadas por el usuario
     if counter == wordCuantity:
         create_file(file_name, alltext)
         break
 
+    # Corte por maxima cantidad de palabras posibles
     if counter == get_max_num(dic):
         create_file(file_name, alltext)
         break

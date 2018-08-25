@@ -50,17 +50,19 @@ while True:
         palabra += dic[x]
         lista[0] += 1
         print(palabra)
-        alltext += palabra + ","
+        # alltext += palabra + ","
         a += 1
+
+                
+    alltext += palabra + ","
     if a == resp2:
-        print (alltext)
+
         file = open("archivos/" + file_name + ".txt", "a")
         file.write(alltext)
         file.close()
         break
 
     if a == get_max_num(dic):
-        print(alltext)
 
         file = open("archivos/" + file_name + ".txt", "a")
         file.write(alltext)

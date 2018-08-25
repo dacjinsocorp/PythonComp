@@ -18,9 +18,8 @@ def create_file(name, content):
     file.close()
 
 
+# Inicio del programa
 dic = sys.argv[1]
-file_name = input("Ingrese el nombre del archivo a crear: ")
-
 
 print("El numero de palabras que se generaran sera: " +
       str(get_max_num(dic))+"\nQuires proseguir?[Y/N]")
@@ -29,16 +28,18 @@ if resp != "y":
     sys.exit(0)
 print("Cuantas palabras se desea generar?: ")
 wordCuantity = int(input(">"))
+file_name = input("Ingrese el nombre del archivo a crear: ")
 
+
+# Declaración de variables generales
 lista = [0] * int(len(dic))
-palabra = ""
-
+word = ""
 alltext = ""
 counter = 0
 
 
 while True:
-    palabra = ""
+    word = ""
     for w in range(len(lista)):
         if lista[w] == len(dic):
             lista[w] = 0
@@ -48,14 +49,12 @@ while True:
                 pass
 
     for x in lista:
-        palabra += dic[x]
+        word += dic[x]
         lista[0] += 1
-        print(palabra)
-        # alltext += palabra + ","
-
+        print(word)
 
     counter += 1      
-    alltext += palabra + ","
+    alltext += word + ","
     if counter == wordCuantity:
         create_file(file_name, alltext)
         break

@@ -37,7 +37,6 @@ word = ""
 alltext = ""
 counter = 0
 
-
 while True:
     word = ""
     for w in range(len(lista)):

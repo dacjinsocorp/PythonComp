@@ -50,6 +50,9 @@ while True:
     alltext += palabra
     a += 1
     if a == resp2:
+        file = open("archivos/" + file_name + ".txt", "w")
+        file.write(alltext)
+        file.close()
         break
     if a == get_max_num(dic):
         file = open("archivos/" + file_name + ".txt", "w")

@@ -28,13 +28,13 @@ resp = input(">")
 if resp != "y":
     sys.exit(0)
 print("Cuantas palabras se desea generar?: ")
-resp2 = int(input(">"))
+wordCuantity = int(input(">"))
 
 lista = [0] * int(len(dic))
 palabra = ""
 
 alltext = ""
-a = 0
+counter = 0
 
 
 while True:
@@ -52,14 +52,14 @@ while True:
         lista[0] += 1
         print(palabra)
         # alltext += palabra + ","
-        a += 1
 
-                
+
+    counter += 1      
     alltext += palabra + ","
-    if a == resp2:
+    if counter == wordCuantity:
         create_file(file_name, alltext)
         break
 
-    if a == get_max_num(dic):
+    if counter == get_max_num(dic):
         create_file(file_name, alltext)
         break

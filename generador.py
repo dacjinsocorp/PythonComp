@@ -21,18 +21,22 @@ def create_file(name, content):
 # Inicio del programa
 dic = sys.argv[1]
 
+#Pregunta donde se informa la cantidad de palabras a generar por defecto y si desea continuar
 print("El numero de palabras que se generaran sera: " +
       str(get_max_num(dic))+"\nQuires proseguir?[Y/N]")
 resp = input(">")
 if resp != "y":
     sys.exit(0)
 while True:
+    
+    # Solicitud de ingreso de número de palabras que desea generar, esto con validación
     try:
         wordCuantity = int(input("Cuantas palabras se desea generar?: "))
         break
     except ValueError:
         print ("Por favor ingresar un numero entero")
 
+# Solicita el 
 file_name = input("Ingrese el nombre del archivo a crear: ")
 
 
